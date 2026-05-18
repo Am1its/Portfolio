@@ -1,0 +1,67 @@
+export const projects = [
+  {
+    id: 1,
+    title: 'SportLink',
+    category: 'UI/UX & Mobile',
+    icon: '⚽',
+    color: 'cyan',
+    description:
+      'A mobile application prototype built around user-centric UI/UX principles. Features comprehensive user-flow mapping, high-fidelity Figma mockups, accessibility-first design, and intuitive navigation architecture for a sports community platform.',
+    highlights: ['User Flow Design', 'High-Fi Mockups', 'Accessibility-First'],
+    tags: ['Figma', 'UI/UX', 'Mobile Design', 'Prototyping', 'User Research'],
+    github: 'https://github.com/Am1its',
+    live: null,
+  },
+  {
+    id: 2,
+    title: 'Crypto-Advisor Dashboard',
+    category: 'Full-Stack Web',
+    icon: '📈',
+    color: 'purple',
+    description:
+      'A comprehensive full-stack React web application for real-time cryptocurrency tracking. Features live price feeds via public APIs, interactive portfolio management, historical price charts, and is deployed live with full GitHub CI version control.',
+    highlights: ['Live Price Feeds', 'Portfolio Manager', 'Interactive Charts'],
+    tags: ['React', 'JavaScript', 'REST API', 'CSS', 'Vite'],
+    github: 'https://github.com/Am1its',
+    live: null,
+  },
+  {
+    id: 3,
+    title: 'S-Emulator Ecosystem',
+    category: 'Systems Engineering',
+    icon: '⚙️',
+    color: 'blue',
+    description:
+      'A modular Java ecosystem for a custom Assembly language. Includes a core execution engine with a full instruction set, a rich JavaFX desktop GUI, and a React web client — allowing programs to run in both native and browser environments.',
+    highlights: ['Custom ISA', 'JavaFX Desktop GUI', 'React Web Client'],
+    tags: ['Java', 'JavaFX', 'React', 'Assembly', 'Systems Programming'],
+    github: 'https://github.com/Am1its',
+    live: null,
+  },
+  {
+    id: 4,
+    title: 'Kubernetes Microservices',
+    category: 'Cloud & DevOps',
+    icon: '☸️',
+    color: 'orange',
+    description:
+      'A production-grade Todo application deployed on a secure Kubernetes cluster. Features containerized microservices with Docker, horizontal pod auto-scaling, Nginx ingress load balancing, and a full CI/CD pipeline from build to deployment.',
+    highlights: ['K8s Orchestration', 'Auto-Scaling', 'CI/CD Pipeline'],
+    tags: ['Kubernetes', 'Docker', 'Nginx', 'Linux', 'DevOps', 'Microservices'],
+    github: 'https://github.com/Am1its',
+    live: null,
+  },
+  {
+    id: 5,
+    title: 'Cybersecurity Portfolio',
+    category: 'Cybersecurity',
+    icon: '🔐',
+    color: 'red',
+    description:
+      'A suite of Python & Linux security tools: an ML-powered Email Phishing Detector, a Malware Analysis Sandbox with Docker isolation for safe code execution, and an SQL Injection Simulator paired with a Flask analytics dashboard.',
+    highlights: ['Phishing Detector', 'Docker Sandbox', 'SQL Injection Sim'],
+    tags: ['Python', 'Docker', 'Flask', 'Linux', 'SQL', 'Security', 'ML'],
+    github: 'https://github.com/Am1its',
+    live: null,
+  },
+]

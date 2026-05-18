@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    @apply bg-[#050816] text-slate-100 antialiased;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { @apply bg-[#050816]; }
+  ::-webkit-scrollbar-thumb { @apply bg-cyan-600 rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-cyan-400; }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent;
+  }
+
+  .glass-card {
+    @apply bg-slate-900/60 backdrop-blur-sm border border-slate-700/50 rounded-2xl;
+  }
+
+  .nav-link {
+    @apply relative text-slate-300 hover:text-cyan-400 transition-colors duration-200 text-sm font-medium;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600
+           text-white font-semibold rounded-xl transition-all duration-300
+           hover:shadow-lg hover:shadow-cyan-500/30 hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-6 py-3 border border-slate-600 text-slate-300
+           font-semibold rounded-xl transition-all duration-300
+           hover:border-cyan-500 hover:text-cyan-400 hover:shadow-lg hover:shadow-cyan-500/10
+           hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .section-title {
+    @apply text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight;
+  }
+
+  .input-field {
+    @apply w-full bg-slate-800/50 border border-slate-700 rounded-xl px-4 py-3
+           text-slate-100 placeholder-slate-500 text-sm
+           focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/40
+           transition-all duration-200;
+  }
+}
+
+/* ── Hero grid background ─────────────────────────────────── */
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(0, 212, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: grid-drift 12s linear infinite;
+}
+
+/* ── Animations ───────────────────────────────────────────── */
+@keyframes grid-drift {
+  from { background-position: 0 0; }
+  to   { background-position: 0 40px; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.5; }
+  50%       { transform: translateY(-18px) rotate(180deg); opacity: 1; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+.float-orb {
+  animation: float linear infinite;
+}
+
+.typewriter-cursor::after {
+  content: '|';
+  @apply text-cyan-400;
+  animation: blink 1s step-end infinite;
+}
