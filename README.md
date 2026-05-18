@@ -2,7 +2,7 @@
 
 A modern, fully responsive personal portfolio website built with **React**, **Vite**, **Tailwind CSS**, and **Framer Motion**.
 
-🌐 **Live:** [amitoved.vercel.app](https://amitoved.vercel.app) <!-- update with your real URL -->
+🌐 **Live:** [amitoved.vercel.app](https://portfolio-eight-rho-89sn7aerco.vercel.app/) 
 
 ---
 
