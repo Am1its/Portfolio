@@ -69,7 +69,7 @@ export default function Navbar() {
                 )}
               </a>
             ))}
-            <a href="/AmitOvedCV.pdf" download className="btn-primary text-sm px-4 py-2">
+            <a href="/AmitOved_CV.pdf" download className="btn-primary text-sm px-4 py-2">
               Resume
             </a>
           </div>
@@ -108,7 +108,7 @@ export default function Navbar() {
                   {label}
                 </a>
               ))}
-              <a href="/AmitOvedCV.pdf" download className="btn-primary self-start mt-1">
+              <a href="/AmitOved_CV.pdf" download className="btn-primary self-start mt-1">
                 Download Resume
               </a>
             </div>
