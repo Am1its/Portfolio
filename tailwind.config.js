@@ -9,8 +9,8 @@ export default {
       },
       colors: {
         brand: {
-          cyan: '#00d4ff',
-          purple: '#a855f7',
+          green: '#22C55E',
+          teal:  '#14B8A6',
         },
       },
       backgroundImage: {

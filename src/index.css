@@ -9,14 +9,13 @@
 
   body {
     font-family: 'Inter', system-ui, sans-serif;
-    @apply bg-[#050816] text-slate-100 antialiased;
+    @apply bg-[#070C14] text-slate-100 antialiased;
   }
 
-  /* Custom scrollbar */
   ::-webkit-scrollbar { width: 5px; }
-  ::-webkit-scrollbar-track { @apply bg-[#050816]; }
-  ::-webkit-scrollbar-thumb { @apply bg-cyan-600 rounded-full; }
-  ::-webkit-scrollbar-thumb:hover { @apply bg-cyan-400; }
+  ::-webkit-scrollbar-track { @apply bg-[#070C14]; }
+  ::-webkit-scrollbar-thumb { @apply bg-emerald-600 rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-emerald-400; }
 }
 
 @layer components {
@@ -25,27 +24,30 @@
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent;
   }
 
   .glass-card {
-    @apply bg-slate-900/60 backdrop-blur-sm border border-slate-700/50 rounded-2xl;
+    @apply bg-white/[0.03] backdrop-blur-sm border border-white/[0.07] rounded-2xl;
   }
 
   .nav-link {
-    @apply relative text-slate-300 hover:text-cyan-400 transition-colors duration-200 text-sm font-medium;
+    @apply relative text-slate-400 hover:text-emerald-400 transition-colors duration-200 text-sm font-medium cursor-pointer;
   }
 
   .btn-primary {
-    @apply inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600
-           text-white font-semibold rounded-xl transition-all duration-300
-           hover:shadow-lg hover:shadow-cyan-500/30 hover:-translate-y-0.5 active:translate-y-0;
+    @apply inline-flex items-center gap-2 px-6 py-3
+           bg-emerald-500 text-[#070C14] font-semibold rounded-xl
+           transition-all duration-200
+           hover:bg-emerald-400 hover:shadow-lg hover:shadow-emerald-500/25
+           hover:-translate-y-0.5 active:translate-y-0;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center gap-2 px-6 py-3 border border-slate-600 text-slate-300
-           font-semibold rounded-xl transition-all duration-300
-           hover:border-cyan-500 hover:text-cyan-400 hover:shadow-lg hover:shadow-cyan-500/10
+    @apply inline-flex items-center gap-2 px-6 py-3
+           border border-white/10 text-slate-300 font-semibold rounded-xl
+           transition-all duration-200
+           hover:border-emerald-500/60 hover:text-emerald-400
            hover:-translate-y-0.5 active:translate-y-0;
   }
 
@@ -53,32 +55,41 @@
     @apply text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight;
   }
 
+  .section-label {
+    @apply font-mono text-xs text-emerald-400 tracking-[0.2em] uppercase;
+  }
+
   .input-field {
-    @apply w-full bg-slate-800/50 border border-slate-700 rounded-xl px-4 py-3
-           text-slate-100 placeholder-slate-500 text-sm
-           focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/40
+    @apply w-full bg-white/[0.04] border border-white/[0.08] rounded-xl px-4 py-3
+           text-slate-100 placeholder-slate-600 text-sm
+           focus:outline-none focus:border-emerald-500/60 focus:ring-1 focus:ring-emerald-500/20
            transition-all duration-200;
+  }
+
+  .tag-pill {
+    @apply text-xs px-2.5 py-1 rounded-full border border-white/[0.08] bg-white/[0.04]
+           text-slate-400 font-mono;
   }
 }
 
-/* ── Hero grid background ─────────────────────────────────── */
+/* ── Hero grid ───────────────────────────────────────────── */
 .hero-grid {
   background-image:
-    linear-gradient(rgba(0, 212, 255, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 212, 255, 0.06) 1px, transparent 1px);
-  background-size: 40px 40px;
-  animation: grid-drift 12s linear infinite;
+    linear-gradient(rgba(16, 185, 129, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 185, 129, 0.04) 1px, transparent 1px);
+  background-size: 44px 44px;
+  animation: grid-drift 14s linear infinite;
 }
 
-/* ── Animations ───────────────────────────────────────────── */
+/* ── Animations ──────────────────────────────────────────── */
 @keyframes grid-drift {
   from { background-position: 0 0; }
-  to   { background-position: 0 40px; }
+  to   { background-position: 0 44px; }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.5; }
-  50%       { transform: translateY(-18px) rotate(180deg); opacity: 1; }
+  0%, 100% { transform: translateY(0); opacity: 0.6; }
+  50%       { transform: translateY(-14px); opacity: 1; }
 }
 
 @keyframes blink {
@@ -87,11 +98,38 @@
 }
 
 .float-orb {
-  animation: float linear infinite;
+  animation: float ease-in-out infinite;
 }
 
 .typewriter-cursor::after {
   content: '|';
-  @apply text-cyan-400;
+  @apply text-emerald-400;
   animation: blink 1s step-end infinite;
+}
+
+/* ── Bento grid ──────────────────────────────────────────── */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(220px, auto);
+  gap: 16px;
+}
+
+@media (max-width: 1023px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 639px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero-grid { animation: none; }
+  .float-orb { animation: none; }
+  .typewriter-cursor::after { animation: none; }
 }

@@ -2,21 +2,21 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const NAV_LINKS = [
-  { label: 'About',    href: '#about'    },
-  { label: 'Skills',   href: '#skills'   },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Contact',  href: '#contact'  },
+  { label: 'About',      href: '#about'      },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Projects',   href: '#projects'   },
+  { label: 'Skills',     href: '#skills'     },
+  { label: 'Contact',    href: '#contact'    },
 ]
 
 export default function Navbar() {
-  const [scrolled,  setScrolled]  = useState(false)
-  const [menuOpen,  setMenuOpen]  = useState(false)
-  const [active,    setActive]    = useState('')
+  const [scrolled, setScrolled] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [active,   setActive]   = useState('')
 
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 40)
-
       const sections = NAV_LINKS.map((l) => l.href.slice(1))
       for (const id of [...sections].reverse()) {
         const el = document.getElementById(id)
@@ -37,7 +37,7 @@ export default function Navbar() {
       transition={{ duration: 0.6, ease: 'easeOut' }}
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-[#050816]/90 backdrop-blur-md border-b border-slate-800/60 shadow-lg shadow-black/30'
+          ? 'bg-[#070C14]/90 backdrop-blur-md border-b border-white/[0.06] shadow-lg shadow-black/40'
           : 'bg-transparent'
       }`}
     >
@@ -46,25 +46,25 @@ export default function Navbar() {
 
           {/* Logo */}
           <a href="#" className="group flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-cyan-500 to-purple-600 flex items-center justify-center font-bold text-sm tracking-tight shadow-lg shadow-cyan-500/20 group-hover:shadow-cyan-500/40 transition-shadow duration-300">
+            <div className="w-9 h-9 rounded-lg bg-emerald-500 flex items-center justify-center font-bold text-sm tracking-tight text-[#070C14] shadow-lg shadow-emerald-500/20 group-hover:shadow-emerald-500/40 transition-shadow duration-300">
               AO
             </div>
             <span className="font-bold text-white hidden sm:block">Amit Oved</span>
           </a>
 
           {/* Desktop links */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-7">
             {NAV_LINKS.map(({ label, href }) => (
               <a
                 key={label}
                 href={href}
-                className={`nav-link ${active === href.slice(1) ? 'text-cyan-400' : ''}`}
+                className={`nav-link ${active === href.slice(1) ? 'text-emerald-400' : ''}`}
               >
                 {label}
                 {active === href.slice(1) && (
                   <motion.span
                     layoutId="nav-underline"
-                    className="absolute -bottom-1 left-0 right-0 h-px bg-cyan-400 rounded-full"
+                    className="absolute -bottom-1 left-0 right-0 h-px bg-emerald-400 rounded-full"
                   />
                 )}
               </a>
@@ -77,7 +77,7 @@ export default function Navbar() {
           {/* Hamburger */}
           <button
             onClick={() => setMenuOpen((v) => !v)}
-            className="md:hidden flex flex-col justify-between w-6 h-5 text-slate-300 hover:text-cyan-400 transition-colors"
+            className="md:hidden flex flex-col justify-between w-6 h-5 text-slate-300 hover:text-emerald-400 transition-colors"
             aria-label="Toggle menu"
           >
             <span className={`h-px bg-current transition-all duration-300 origin-left ${menuOpen ? 'rotate-45 translate-y-0.5' : ''}`} />
@@ -87,7 +87,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile drawer */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -95,7 +94,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25 }}
-            className="md:hidden overflow-hidden bg-[#050816]/95 backdrop-blur-md border-b border-slate-800/50"
+            className="md:hidden overflow-hidden bg-[#070C14]/95 backdrop-blur-md border-b border-white/[0.06]"
           >
             <div className="section-container py-5 flex flex-col gap-4">
               {NAV_LINKS.map(({ label, href }) => (

@@ -2,50 +2,51 @@ import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 
 const STATS = [
-  { value: '3+', label: 'Years Coding',      icon: '💻' },
-  { value: '5+', label: 'Projects Built',    icon: '🚀' },
-  { value: '2',  label: 'Spoken Languages',  icon: '🌍' },
-  { value: '∞',  label: 'Drive to Learn',    icon: '📚' },
+  { value: '3+', label: 'Years Coding'     },
+  { value: '5+', label: 'Projects Built'   },
+  { value: '2',  label: 'Languages Spoken' },
+  { value: '∞',  label: 'Drive to Learn'   },
 ]
 
 const TIMELINE = [
-  { year: '2019–2021', event: 'Naval service — fitness instructor in the Israeli Navy', icon: '⚓' },
-  { year: '2022',      event: 'Began B.Sc. Computer Science at Tel Aviv-Yafo Academic College', icon: '🎓' },
-  { year: '2023',      event: 'Built first full-stack projects; dove into cloud & DevOps', icon: '☁️' },
-  { year: '2024–Now',  event: 'Exploring Kubernetes, microservices & cybersecurity tooling', icon: '🔐' },
+  { year: '2019–2021', event: 'Naval service as a fitness instructor in the Israeli Navy', accent: false },
+  { year: '2022',      event: 'Began B.Sc. Computer Science at Tel Aviv-Yafo Academic College', accent: false },
+  { year: '2023',      event: 'Built first full-stack projects; dove into cloud & DevOps', accent: false },
+  { year: '2024–2025', event: 'Exploring Kubernetes, microservices & kernel-level systems programming', accent: false },
+  { year: '2026',      event: 'Joined Moveo Group as a Full-Stack Developer', accent: true },
 ]
 
 const INFO = [
-  { label: 'Location',   value: 'Tel Aviv, Israel 🇮🇱' },
-  { label: 'Degree',     value: 'B.Sc. Computer Science' },
-  { label: 'College',    value: 'Tel Aviv-Yafo Academic College' },
-  { label: 'Year',       value: '3rd Year (Current)' },
-  { label: 'Focus',      value: 'Full-Stack · Cloud · Security' },
+  { label: 'Location', value: 'Tel Aviv, Israel' },
+  { label: 'Degree',   value: 'B.Sc. Computer Science' },
+  { label: 'College',  value: 'Tel Aviv-Yafo Academic College' },
+  { label: 'Status',   value: 'Final Year · Graduating 2026' },
+  { label: 'Focus',    value: 'Full-Stack · Cloud · Systems' },
 ]
 
 export default function About() {
-  const ref = useRef(null)
+  const ref    = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
 
   const fadeUp = (delay = 0) => ({
-    initial: { opacity: 0, y: 28 },
-    animate: inView ? { opacity: 1, y: 0 } : {},
+    initial:    { opacity: 0, y: 28 },
+    animate:    inView ? { opacity: 1, y: 0 } : {},
     transition: { duration: 0.65, delay },
   })
 
   return (
     <section id="about" className="py-28 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#050816] via-[#08101f] to-[#050816] pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#070C14] via-[#090F1A] to-[#070C14] pointer-events-none" />
 
       <div ref={ref} className="section-container relative z-10">
 
         {/* Heading */}
         <motion.div {...fadeUp(0)} className="text-center mb-16">
-          <p className="font-mono text-xs text-cyan-400 tracking-[0.25em] uppercase mb-3">Get to know me</p>
+          <p className="section-label mb-3">// 01 about</p>
           <h2 className="section-title">
             About <span className="gradient-text">Me</span>
           </h2>
-          <div className="w-16 h-0.5 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full mx-auto mt-4" />
+          <div className="w-12 h-px bg-emerald-500/60 mx-auto mt-5" />
         </motion.div>
 
         <div className="grid lg:grid-cols-5 gap-12 items-start">
@@ -53,92 +54,96 @@ export default function About() {
           {/* ── Bio + Timeline ─────────────────────────── */}
           <div className="lg:col-span-3 space-y-6">
             <motion.p {...fadeUp(0.15)} className="text-slate-300 text-lg leading-relaxed">
-              I'm a{' '}
-              <span className="text-cyan-400 font-semibold">3rd-year Computer Science student</span> at
-              the Academic College of Tel Aviv-Yafo, passionate about building software that is both
-              powerful under the hood and beautiful on the surface.
+              I am a{' '}
+              <span className="text-emerald-400 font-semibold">Full-Stack Developer</span> currently
+              working at Moveo Group and a final-year Computer Science student at The Academic College
+              of Tel Aviv-Yafo.
             </motion.p>
 
-            <motion.p {...fadeUp(0.25)} className="text-slate-400 leading-relaxed">
+            <motion.p {...fadeUp(0.23)} className="text-slate-400 leading-relaxed">
+              I have a strong passion for building robust, end-to-end applications — from designing
+              intuitive user interfaces to architecting complex backend systems and cloud infrastructure.
+              I thrive on solving complex technical challenges, whether it involves developing{' '}
+              <span className="text-emerald-400 font-medium">low-level kernel drivers</span>{' '}
+              or creating{' '}
+              <span className="text-teal-300 font-medium">seamless UI/UX workflows</span>.
+            </motion.p>
+
+            <motion.p {...fadeUp(0.3)} className="text-slate-400 leading-relaxed">
               Before I wrote a single line of code I served as a{' '}
-              <span className="text-purple-400 font-semibold">naval fitness instructor</span> in the
-              Israeli Navy. That chapter forged in me real discipline, the ability to perform under
-              pressure, and a relentless drive to keep pushing — qualities that now shape the way I
-              approach every engineering challenge, from a tricky algorithm to a complex cloud deployment.
-            </motion.p>
-
-            <motion.p {...fadeUp(0.32)} className="text-slate-400 leading-relaxed">
-              Today I specialise in full-stack web development, cloud architecture, and cybersecurity,
-              always with a designer's eye for UI/UX. I thrive at the intersection of{' '}
-              <span className="text-cyan-400">clean, efficient code</span> and{' '}
-              <span className="text-purple-400">intuitive, delightful design</span>.
+              <span className="text-slate-300 font-medium">naval fitness instructor</span>{' '}
+              in the Israeli Navy — an experience that forged real discipline, the ability to perform
+              under pressure, and a relentless drive to keep pushing. Qualities that now shape every
+              engineering challenge I take on.
             </motion.p>
 
             {/* Timeline */}
-            <motion.div {...fadeUp(0.4)} className="mt-8 space-y-1">
-              <h3 className="text-sm font-semibold text-slate-300 mb-5 font-mono tracking-wider uppercase">
+            <motion.div {...fadeUp(0.38)} className="mt-8">
+              <h3 className="font-mono text-xs text-slate-500 tracking-[0.2em] uppercase mb-6">
                 // journey
               </h3>
-              {TIMELINE.map((item, i) => (
-                <div key={i} className="flex gap-4 group">
-                  <div className="flex flex-col items-center pt-1">
-                    <span className="text-base">{item.icon}</span>
-                    {i < TIMELINE.length - 1 && (
-                      <div className="w-px flex-1 bg-slate-700/60 mt-1 mb-1" />
-                    )}
+              <div className="space-y-0">
+                {TIMELINE.map((item, i) => (
+                  <div key={i} className="flex gap-4 group">
+                    <div className="flex flex-col items-center pt-1.5">
+                      <div className={`w-1.5 h-1.5 rounded-full shrink-0 mt-0.5 ${item.accent ? 'bg-emerald-400' : 'bg-slate-600'}`} />
+                      {i < TIMELINE.length - 1 && (
+                        <div className="w-px flex-1 bg-slate-800 mt-1.5 mb-1.5" />
+                      )}
+                    </div>
+                    <div className="pb-5">
+                      <span className={`font-mono text-xs px-2 py-0.5 rounded ${item.accent ? 'bg-emerald-500/10 text-emerald-400' : 'bg-white/[0.04] text-slate-500'}`}>
+                        {item.year}
+                      </span>
+                      <p className={`text-sm mt-1.5 leading-relaxed ${item.accent ? 'text-slate-200 font-medium' : 'text-slate-400'}`}>
+                        {item.event}
+                      </p>
+                    </div>
                   </div>
-                  <div className="pb-5">
-                    <span className="font-mono text-xs text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded">
-                      {item.year}
-                    </span>
-                    <p className="text-slate-300 text-sm mt-1.5 leading-relaxed">{item.event}</p>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </motion.div>
           </div>
 
           {/* ── Stats + Info card ──────────────────────── */}
-          <div className="lg:col-span-2 space-y-5">
+          <div className="lg:col-span-2 space-y-4">
 
             {/* Stat grid */}
             <motion.div {...fadeUp(0.3)} className="grid grid-cols-2 gap-3">
               {STATS.map((s) => (
                 <div
                   key={s.label}
-                  className="glass-card p-4 text-center hover:border-cyan-500/40 transition-colors duration-300 group cursor-default"
+                  className="glass-card p-5 text-center hover:border-emerald-500/30 transition-colors duration-300 cursor-default"
                 >
-                  <span className="text-2xl block mb-1">{s.icon}</span>
-                  <p className="text-2xl font-bold gradient-text group-hover:scale-105 transition-transform duration-300">
-                    {s.value}
-                  </p>
-                  <p className="text-xs text-slate-500 mt-0.5">{s.label}</p>
+                  <p className="text-2xl font-bold gradient-text mb-1">{s.value}</p>
+                  <p className="text-xs text-slate-500 font-mono">{s.label}</p>
                 </div>
               ))}
             </motion.div>
 
             {/* Info card */}
-            <motion.div {...fadeUp(0.45)} className="glass-card p-6 space-y-3">
-              <h3 className="font-semibold text-slate-200 pb-3 border-b border-slate-700/60">
-                Quick Info
+            <motion.div {...fadeUp(0.42)} className="glass-card p-6 space-y-3">
+              <h3 className="font-mono text-xs text-slate-500 tracking-[0.2em] uppercase pb-3 border-b border-white/[0.06]">
+                // quick info
               </h3>
               {INFO.map(({ label, value }) => (
                 <div key={label} className="flex justify-between items-start gap-3 text-sm">
-                  <span className="text-slate-500 shrink-0">{label}</span>
-                  <span className="text-slate-300 text-right">{value}</span>
+                  <span className="text-slate-600 shrink-0 font-mono text-xs">{label}</span>
+                  <span className="text-slate-300 text-right text-xs">{value}</span>
                 </div>
               ))}
             </motion.div>
 
-            {/* Navy callout */}
+            {/* Callout */}
             <motion.div
-              {...fadeUp(0.55)}
-              className="glass-card p-5 border-l-2 border-cyan-500/60"
+              {...fadeUp(0.52)}
+              className="glass-card p-5 border-l-2 border-emerald-500/50"
             >
               <p className="text-sm text-slate-400 leading-relaxed">
-                <span className="text-cyan-400 font-semibold">Navy background →</span>{' '}
-                Discipline, resilience, and fast self-learning aren't just buzzwords for me — they're
-                habits built through real-world high-stakes service.
+                <span className="text-emerald-400 font-semibold font-mono">$ whoami</span>
+                <br />
+                <span className="text-slate-500">→</span>{' '}
+                A developer who is equally comfortable in a kernel module and a Figma canvas.
               </p>
             </motion.div>
           </div>
