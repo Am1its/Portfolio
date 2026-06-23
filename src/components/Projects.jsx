@@ -190,8 +190,8 @@ export default function Projects() {
 
   return (
     <section id="projects" className="py-28 relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-emerald-500/3 rounded-full blur-3xl" />
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="light w-[700px] h-[700px] bg-emerald-500/4 blur-[180px] drift-a" style={{ top: '15%', left: '50%', transform: 'translateX(-50%)' }} />
       </div>
 
       <div ref={ref} className="section-container relative z-10">

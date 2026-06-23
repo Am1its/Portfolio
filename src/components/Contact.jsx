@@ -69,8 +69,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="py-28 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#070C14] via-[#090F1A] to-[#070C14] pointer-events-none" />
-      <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-emerald-500/4 rounded-full blur-3xl pointer-events-none" />
+      <div className="light w-[700px] h-[700px] bg-indigo-500/3 blur-[180px] drift-a" style={{ top: '5%', left: '50%', transform: 'translateX(-50%)' }} />
 
       <div ref={ref} className="section-container relative z-10">
 

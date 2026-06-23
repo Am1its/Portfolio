@@ -87,8 +87,8 @@ export default function Skills() {
 
   return (
     <section id="skills" className="py-28 relative overflow-hidden">
-      <div className="absolute top-0    right-0 w-96 h-96 bg-teal-500/4   rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0  w-96 h-96 bg-emerald-500/4 rounded-full blur-3xl pointer-events-none" />
+      <div className="light w-[600px] h-[600px] bg-indigo-500/4 blur-[160px] drift-b" style={{ top: '-10%', right: '-5%' }} />
+      <div className="light w-[400px] h-[400px] bg-emerald-500/3 blur-[120px] drift-c" style={{ bottom: '-10%', left: '-5%' }} />
 
       <div ref={ref} className="section-container relative z-10">
 
