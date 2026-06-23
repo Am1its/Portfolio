@@ -156,11 +156,11 @@ export default function Contact() {
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div>
                       <label className="block text-xs font-mono text-slate-500 mb-2 uppercase tracking-wider">Your Name</label>
-                      <input name="name" type="text" value={form.name} onChange={handleChange} placeholder="John Doe" required className="input-field" />
+                      <input name="name" type="text" autoComplete="name" value={form.name} onChange={handleChange} placeholder="Your name" required className="input-field" />
                     </div>
                     <div>
                       <label className="block text-xs font-mono text-slate-500 mb-2 uppercase tracking-wider">Email</label>
-                      <input name="email" type="email" value={form.email} onChange={handleChange} placeholder="john@example.com" required className="input-field" />
+                      <input name="email" type="email" inputMode="email" autoComplete="email" value={form.email} onChange={handleChange} placeholder="you@example.com" required className="input-field" />
                     </div>
                   </div>
 
