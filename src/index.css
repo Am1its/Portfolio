@@ -170,4 +170,5 @@
   .hero-grid { animation: none; }
   .typewriter-cursor::after { animation: none; }
   .drift-a, .drift-b, .drift-c { animation: none; }
+  /* ParticleCanvas skips its RAF loop via a JS matchMedia check */
 }

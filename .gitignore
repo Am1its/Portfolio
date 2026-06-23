@@ -5,3 +5,5 @@ dist/
 CLAUDE.md
 skills-lock.json
 .agents
+docs/superpowers
+.claude

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import ParticleCanvas from './ParticleCanvas'
 
 const ROLES = [
   'Full-Stack Developer',
@@ -15,21 +16,25 @@ function useTypewriter(words, speed = 90, pauseMs = 2200) {
 
   useEffect(() => {
     const current = words[wordIdx % words.length]
-    const delay = isDeleting ? speed / 2 : speed
+
+    // Word fully typed — pause, then start deleting
+    if (!isDeleting && display === current) {
+      const id = setTimeout(() => setIsDeleting(true), pauseMs)
+      return () => clearTimeout(id)
+    }
 
     const id = setTimeout(() => {
-      if (!isDeleting) {
-        setDisplay(current.slice(0, display.length + 1))
-        if (display.length + 1 === current.length)
-          setTimeout(() => setIsDeleting(true), pauseMs)
-      } else {
-        setDisplay(current.slice(0, display.length - 1))
-        if (display.length === 0) {
+      if (isDeleting) {
+        const next = display.slice(0, -1)
+        setDisplay(next)
+        if (next === '') {
           setIsDeleting(false)
           setWordIdx((i) => (i + 1) % words.length)
         }
+      } else {
+        setDisplay(current.slice(0, display.length + 1))
       }
-    }, delay)
+    }, isDeleting ? speed / 2 : speed)
 
     return () => clearTimeout(id)
   }, [display, isDeleting, wordIdx, words, speed, pauseMs])
@@ -47,11 +52,7 @@ export default function Hero() {
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
 
-      <div className="absolute inset-0 hero-grid" />
-      {/* Lighting rig: emerald key (upper-left), indigo fill (lower-right), violet rim (left edge) */}
-      <div className="light w-[900px] h-[900px] bg-emerald-500/8 blur-[180px] drift-a" style={{ top: '-15%', left: '-5%' }} />
-      <div className="light w-[800px] h-[800px] bg-indigo-500/5 blur-[200px] drift-b" style={{ bottom: '-15%', right: '-8%' }} />
-      <div className="light w-[120px] h-[500px] bg-violet-500/4 blur-[80px] drift-c" style={{ top: '15%', left: '-1%' }} />
+      <ParticleCanvas />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#070C14]" />
 
       <div className="section-container relative z-10 pt-24 pb-16">
