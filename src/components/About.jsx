@@ -35,8 +35,8 @@ export default function About() {
   })
 
   return (
-    <section id="about" className="py-28 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#070C14] via-[#090F1A] to-[#070C14] pointer-events-none" />
+    <section id="about" className="py-28 relative overflow-hidden">
+      <div className="light w-[700px] h-[700px] bg-indigo-500/3 blur-[180px] drift-b" style={{ bottom: '-10%', right: '-5%' }} />
 
       <div ref={ref} className="section-container relative z-10">
 

@@ -22,7 +22,7 @@ export default function Experience() {
 
   return (
     <section id="experience" className="py-28 relative overflow-hidden">
-      <div className="absolute top-1/2 right-0 w-96 h-96 bg-emerald-500/4 rounded-full blur-3xl pointer-events-none -translate-y-1/2" />
+      <div className="light w-[600px] h-[600px] bg-indigo-500/3 blur-[160px] drift-c" style={{ bottom: '-10%', right: '-5%' }} />
 
       <div ref={ref} className="section-container relative z-10">
 
