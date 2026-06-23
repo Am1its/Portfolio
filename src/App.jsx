@@ -11,12 +11,14 @@ export default function App() {
   return (
     <div className="bg-[#070C14] text-slate-100 overflow-x-hidden">
       <Navbar />
-      <Hero />
-      <About />
-      <Experience />
-      <Projects />
-      <Skills />
-      <Contact />
+      <main>
+        <Hero />
+        <About />
+        <Experience />
+        <Projects />
+        <Skills />
+        <Contact />
+      </main>
       <Footer />
     </div>
   )

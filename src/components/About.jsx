@@ -63,10 +63,10 @@ export default function About() {
             <motion.p {...fadeUp(0.23)} className="text-slate-400 leading-relaxed">
               I have a strong passion for building robust, end-to-end applications — from designing
               intuitive user interfaces to architecting complex backend systems and cloud infrastructure.
-              I thrive on solving complex technical challenges, whether it involves developing{' '}
+              I thrive on solving hard technical problems, whether it means writing{' '}
               <span className="text-emerald-400 font-medium">low-level kernel drivers</span>{' '}
-              or creating{' '}
-              <span className="text-teal-300 font-medium">seamless UI/UX workflows</span>.
+              or crafting{' '}
+              <span className="text-teal-300 font-medium">fast, well-designed UIs</span>.
             </motion.p>
 
             <motion.p {...fadeUp(0.3)} className="text-slate-400 leading-relaxed">

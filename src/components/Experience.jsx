@@ -9,8 +9,8 @@ const ROLES = [
     location:  'Tel Aviv, Israel',
     current:   true,
     bullets: [
-      'Developing and maintaining end-to-end features using modern web technologies.',
-      'Collaborating with design and product teams to deliver high-quality, scalable solutions.',
+      'Building and shipping end-to-end features across the React frontend and Node.js backend.',
+      'Working closely with product and design to take features from spec to production.',
     ],
     tags: ['React', 'TypeScript', 'Node.js', 'REST APIs'],
   },

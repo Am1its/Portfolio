@@ -17,13 +17,13 @@ const CATEGORIES = [
   {
     title:  'Backend & Systems',
     symbol: '>_',
-    color:  'blue',
+    color:  'slate',
     skills: ['Linux Kernel', 'Syscalls', 'Node.js', 'REST APIs', 'System Programming', 'Microservices'],
   },
   {
     title:  'DevOps & Cloud',
     symbol: '⬡',
-    color:  'sky',
+    color:  'slate',
     skills: ['Kubernetes', 'Docker', 'AWS', 'GCP', 'Azure', 'CI/CD', 'Nginx'],
   },
   {
@@ -55,20 +55,6 @@ const C = {
     badge:  'bg-teal-500/10 text-teal-400 border border-teal-500/15 hover:bg-teal-500/20',
     border: 'hover:border-teal-500/35',
     glow:   'hover:shadow-teal-500/8',
-  },
-  blue: {
-    header: 'text-blue-400',
-    symbol: 'bg-blue-500/10 text-blue-400 border-blue-500/20',
-    badge:  'bg-blue-500/10 text-blue-400 border border-blue-500/15 hover:bg-blue-500/20',
-    border: 'hover:border-blue-500/35',
-    glow:   'hover:shadow-blue-500/8',
-  },
-  sky: {
-    header: 'text-sky-400',
-    symbol: 'bg-sky-500/10 text-sky-400 border-sky-500/20',
-    badge:  'bg-sky-500/10 text-sky-400 border border-sky-500/15 hover:bg-sky-500/20',
-    border: 'hover:border-sky-500/35',
-    glow:   'hover:shadow-sky-500/8',
   },
   slate: {
     header: 'text-slate-400',

@@ -38,17 +38,6 @@ const CONTACT_CARDS = [
       </svg>
     ),
   },
-  {
-    label: 'Phone',
-    value: 'Available on Request',
-    href:  null,
-    color: 'muted',
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-      </svg>
-    ),
-  },
 ]
 
 const COLOR_CLS = {
@@ -106,10 +95,10 @@ export default function Contact() {
           {/* Left: cards */}
           <motion.div {...fadeLeft} className="lg:col-span-2 space-y-4">
             <div className="glass-card p-6 border-l-2 border-emerald-500/50">
-              <h3 className="font-semibold text-slate-200 mb-1.5">Let's build something great</h3>
+              <h3 className="font-semibold text-slate-200 mb-1.5">Open to new opportunities</h3>
               <p className="text-slate-500 text-sm leading-relaxed">
-                Whether you have a project idea, a job opportunity, or just want to geek out about tech —
-                my inbox is always open.
+                Have a project, a role, or just want to talk tech — send a message and I'll
+                get back to you.
               </p>
             </div>
 
@@ -152,9 +141,9 @@ export default function Contact() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-2">Message sent!</h3>
+                  <h3 className="text-2xl font-bold text-white mb-2">Message sent</h3>
                   <p className="text-slate-500 text-sm">
-                    Thanks for reaching out, {form.name}. I'll get back to you soon.
+                    Got it, {form.name}. I'll reply soon.
                   </p>
                   <button
                     onClick={() => { setSubmitted(false); setForm(EMPTY) }}
