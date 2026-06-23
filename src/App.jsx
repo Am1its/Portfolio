@@ -9,7 +9,7 @@ import Footer from './components/Footer'
 
 export default function App() {
   return (
-    <div className="bg-[#070C14] text-slate-100 overflow-x-hidden">
+    <div className="bg-gradient-to-b from-[#070C14] to-[#080B18] text-slate-100 overflow-x-hidden">
       <Navbar />
       <main>
         <Hero />
