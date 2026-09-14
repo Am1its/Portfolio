@@ -37,12 +37,16 @@
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 
-  .gradient-text {
-    @apply bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent;
-  }
-
   .glass-card {
     @apply bg-white/[0.03] backdrop-blur-sm border border-white/[0.07] rounded-2xl;
+  }
+
+  .hairline {
+    @apply border-white/[0.08];
+  }
+
+  .field-label {
+    @apply block text-xs text-slate-500 mb-2;
   }
 
   .nav-link {
@@ -72,10 +76,6 @@
     @apply text-3xl sm:text-4xl lg:text-5xl font-bold;
     letter-spacing: -0.03em;
     text-wrap: balance;
-  }
-
-  .section-label {
-    @apply font-mono text-xs text-emerald-400 tracking-[0.2em] uppercase;
   }
 
   .input-field {
@@ -116,11 +116,6 @@
   to   { background-position: 0 44px; }
 }
 
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0; }
-}
-
 @keyframes drift-a {
   0%, 100% { transform: translate(0, 0) scale(1); }
   33%       { transform: translate(28px, -18px) scale(1.04); }
@@ -139,36 +134,9 @@
   75%       { transform: translate(-20px, 14px) scale(1.03); }
 }
 
-.typewriter-cursor::after {
-  content: '|';
-  @apply text-emerald-400;
-  animation: blink 1s step-end infinite;
-}
-
-/* ── Bento grid ──────────────────────────────────────────── */
-.bento-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: minmax(220px, auto);
-  gap: 16px;
-}
-
-@media (max-width: 1023px) {
-  .bento-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 639px) {
-  .bento-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 /* prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
   .hero-grid { animation: none; }
-  .typewriter-cursor::after { animation: none; }
   .drift-a, .drift-b, .drift-c { animation: none; }
   /* ParticleCanvas skips its RAF loop via a JS matchMedia check */
 }

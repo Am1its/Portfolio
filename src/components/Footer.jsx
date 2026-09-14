@@ -16,7 +16,7 @@ export default function Footer() {
             <span className="text-slate-500 text-sm font-medium">Amit Oved</span>
           </div>
 
-          <p className="text-slate-700 text-xs text-center font-mono">
+          <p className="text-slate-700 text-xs text-center">
             © {YEAR} Amit Oved · Built with React &amp; Tailwind CSS
           </p>
 

@@ -12,7 +12,7 @@ const CATEGORIES = [
     title:  'Frontend',
     symbol: '◈',
     color:  'teal',
-    skills: ['React', 'UI/UX Design', 'Figma', 'Responsive Design', 'HTML', 'CSS'],
+    skills: ['React', 'Angular', 'UI/UX Design', 'Figma', 'Responsive Design', 'HTML', 'CSS'],
   },
   {
     title:  'Backend & Systems',
@@ -97,14 +97,10 @@ export default function Skills() {
           initial={{ opacity: 0, y: 25 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="max-w-2xl mb-16"
         >
-          <p className="section-label mb-3">// 04 tech stack</p>
-          <h2 className="section-title">
-            Tools &amp; <span className="gradient-text">Technologies</span>
-          </h2>
-          <div className="w-12 h-px bg-emerald-500/60 mx-auto mt-5" />
-          <p className="text-slate-500 mt-4 max-w-lg mx-auto text-sm">
+          <h2 className="section-title text-white">Tools and technologies</h2>
+          <p className="text-slate-500 mt-3 text-sm leading-relaxed">
             A versatile skill set spanning systems programming, cloud orchestration, and modern web development.
           </p>
         </motion.div>
@@ -121,7 +117,7 @@ export default function Skills() {
               <motion.div
                 key={cat.title}
                 variants={itemVar}
-                className={`glass-card p-6 hover:shadow-xl ${c.glow} ${c.border} transition-all duration-300`}
+                className={`border border-white/[0.08] rounded-lg p-6 ${c.border} transition-colors duration-300`}
               >
                 <div className="flex items-center gap-3 mb-5">
                   <div className={`w-10 h-10 rounded-lg border font-mono font-bold text-sm flex items-center justify-center shrink-0 ${c.symbol}`}>
@@ -142,7 +138,7 @@ export default function Skills() {
                 </div>
 
                 {cat.muted && (
-                  <p className="text-xs text-slate-700 mt-4 font-mono">// always expanding</p>
+                  <p className="text-xs text-slate-700 mt-4">Always expanding</p>
                 )}
               </motion.div>
             )

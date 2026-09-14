@@ -77,14 +77,10 @@ export default function Contact() {
           initial={{ opacity: 0, y: 25 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="max-w-2xl mb-16"
         >
-          <p className="section-label mb-3">// 05 contact</p>
-          <h2 className="section-title">
-            Get In <span className="gradient-text">Touch</span>
-          </h2>
-          <div className="w-12 h-px bg-emerald-500/60 mx-auto mt-5" />
-          <p className="text-slate-500 mt-4 max-w-lg mx-auto text-sm">
+          <h2 className="section-title text-white">Get in touch</h2>
+          <p className="text-slate-500 mt-3 text-sm leading-relaxed">
             Open to new roles, collaborations, and great conversations about tech.
           </p>
         </motion.div>
@@ -108,7 +104,7 @@ export default function Contact() {
               >
                 <div className="shrink-0">{card.icon}</div>
                 <div className="min-w-0">
-                  <p className="text-[10px] text-slate-600 mb-0.5 uppercase tracking-wider font-mono">{card.label}</p>
+                  <p className="text-xs text-slate-600 mb-0.5">{card.label}</p>
                   {card.href ? (
                     <a
                       href={card.href}
@@ -155,22 +151,22 @@ export default function Contact() {
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-xs font-mono text-slate-500 mb-2 uppercase tracking-wider">Your Name</label>
+                      <label className="field-label">Your name</label>
                       <input name="name" type="text" autoComplete="name" value={form.name} onChange={handleChange} placeholder="Your name" required className="input-field" />
                     </div>
                     <div>
-                      <label className="block text-xs font-mono text-slate-500 mb-2 uppercase tracking-wider">Email</label>
+                      <label className="field-label">Email</label>
                       <input name="email" type="email" inputMode="email" autoComplete="email" value={form.email} onChange={handleChange} placeholder="you@example.com" required className="input-field" />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-mono text-slate-500 mb-2 uppercase tracking-wider">Subject</label>
-                    <input name="subject" type="text" value={form.subject} onChange={handleChange} placeholder="Project inquiry · Collaboration · Just saying hi" required className="input-field" />
+                    <label className="field-label">Subject</label>
+                    <input name="subject" type="text" value={form.subject} onChange={handleChange} placeholder="What's this about?" required className="input-field" />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-mono text-slate-500 mb-2 uppercase tracking-wider">Message</label>
+                    <label className="field-label">Message</label>
                     <textarea name="message" value={form.message} onChange={handleChange} rows={5} placeholder="Tell me about your idea or project..." required className="input-field resize-none" />
                   </div>
 

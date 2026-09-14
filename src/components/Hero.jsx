@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import ParticleCanvas from './ParticleCanvas'
 
 const ROLES = [
@@ -9,37 +9,15 @@ const ROLES = [
   'UI/UX Enthusiast',
 ]
 
-function useTypewriter(words, speed = 90, pauseMs = 2200) {
-  const [display,    setDisplay]    = useState('')
-  const [wordIdx,    setWordIdx]    = useState(0)
-  const [isDeleting, setIsDeleting] = useState(false)
+function useRoleRotator(words, intervalMs = 2800) {
+  const [index, setIndex] = useState(0)
 
   useEffect(() => {
-    const current = words[wordIdx % words.length]
+    const id = setInterval(() => setIndex((i) => (i + 1) % words.length), intervalMs)
+    return () => clearInterval(id)
+  }, [words, intervalMs])
 
-    // Word fully typed — pause, then start deleting
-    if (!isDeleting && display === current) {
-      const id = setTimeout(() => setIsDeleting(true), pauseMs)
-      return () => clearTimeout(id)
-    }
-
-    const id = setTimeout(() => {
-      if (isDeleting) {
-        const next = display.slice(0, -1)
-        setDisplay(next)
-        if (next === '') {
-          setIsDeleting(false)
-          setWordIdx((i) => (i + 1) % words.length)
-        }
-      } else {
-        setDisplay(current.slice(0, display.length + 1))
-      }
-    }, isDeleting ? speed / 2 : speed)
-
-    return () => clearTimeout(id)
-  }, [display, isDeleting, wordIdx, words, speed, pauseMs])
-
-  return display
+  return words[index]
 }
 
 const GH_PATH = 'M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z'
@@ -47,7 +25,7 @@ const LI_PATH = 'M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.8
 
 
 export default function Hero() {
-  const typed = useTypewriter(ROLES)
+  const role = useRoleRotator(ROLES)
 
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
@@ -65,7 +43,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-sm font-mono mb-6"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-sm font-medium mb-6"
             >
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
               Full-Stack Dev @ Moveo Group
@@ -75,30 +53,38 @@ export default function Hero() {
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="section-title mb-4"
+              className="section-title mb-4 text-white"
             >
-              Hi, I'm{' '}
-              <span className="gradient-text">Amit Oved</span>
+              Hi, I'm Amit Oved
             </motion.h1>
 
             <motion.div
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="h-10 flex items-center justify-center lg:justify-start mb-3"
+              className="h-9 flex items-center justify-center lg:justify-start mb-3 overflow-hidden"
             >
-              <span className="font-mono text-xl sm:text-2xl font-medium text-emerald-300 typewriter-cursor">
-                {typed}
-              </span>
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={role}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -12 }}
+                  transition={{ duration: 0.4, ease: 'easeOut' }}
+                  className="text-xl sm:text-2xl font-medium text-emerald-300"
+                >
+                  {role}
+                </motion.span>
+              </AnimatePresence>
             </motion.div>
 
             <motion.p
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.46 }}
-              className="font-mono text-xs text-slate-500 mb-6"
+              className="text-sm text-slate-500 mb-6"
             >
-              Final-Year B.Sc. Computer Science · Tel Aviv-Yafo Academic College
+              B.Sc. in Computer Science, 2026, from Tel Aviv-Yafo Academic College
             </motion.p>
 
             <motion.p

@@ -2,10 +2,10 @@ import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 
 const STATS = [
-  { value: '3+', label: 'Years Coding'     },
-  { value: '5+', label: 'Projects Built'   },
-  { value: '2',  label: 'Languages Spoken' },
-  { value: '∞',  label: 'Drive to Learn'   },
+  { value: '3+', label: 'Years coding'     },
+  { value: '5+', label: 'Projects built'   },
+  { value: '2',  label: 'Languages spoken' },
+  { value: '∞',  label: 'Drive to learn'   },
 ]
 
 const TIMELINE = [
@@ -13,6 +13,7 @@ const TIMELINE = [
   { year: '2022',      event: 'Began B.Sc. Computer Science at Tel Aviv-Yafo Academic College', accent: false },
   { year: '2023',      event: 'Built first full-stack projects; dove into cloud & DevOps', accent: false },
   { year: '2024–2025', event: 'Exploring Kubernetes, microservices & kernel-level systems programming', accent: false },
+  { year: '2026',      event: 'Graduated with a B.Sc. in Computer Science; shipped SportLink, a React Native mobile app', accent: false },
   { year: '2026',      event: 'Joined Moveo Group as a Full-Stack Developer', accent: true },
 ]
 
@@ -20,7 +21,7 @@ const INFO = [
   { label: 'Location', value: 'Tel Aviv, Israel' },
   { label: 'Degree',   value: 'B.Sc. Computer Science' },
   { label: 'College',  value: 'Tel Aviv-Yafo Academic College' },
-  { label: 'Status',   value: 'Final Year · Graduating 2026' },
+  { label: 'Status',   value: 'Graduated 2026' },
   { label: 'Focus',    value: 'Full-Stack · Cloud · Systems' },
 ]
 
@@ -41,12 +42,8 @@ export default function About() {
       <div ref={ref} className="section-container relative z-10">
 
         {/* Heading */}
-        <motion.div {...fadeUp(0)} className="text-center mb-16">
-          <p className="section-label mb-3">// 01 about</p>
-          <h2 className="section-title">
-            About <span className="gradient-text">Me</span>
-          </h2>
-          <div className="w-12 h-px bg-emerald-500/60 mx-auto mt-5" />
+        <motion.div {...fadeUp(0)} className="max-w-2xl mb-16">
+          <h2 className="section-title text-white">About me</h2>
         </motion.div>
 
         <div className="grid lg:grid-cols-5 gap-12 items-start">
@@ -56,8 +53,8 @@ export default function About() {
             <motion.p {...fadeUp(0.15)} className="text-slate-300 text-lg leading-relaxed">
               I am a{' '}
               <span className="text-emerald-400 font-semibold">Full-Stack Developer</span> currently
-              working at Moveo Group and a final-year Computer Science student at The Academic College
-              of Tel Aviv-Yafo.
+              working at Moveo Group, and a Computer Science graduate (B.Sc., 2026) of The Academic
+              College of Tel Aviv-Yafo.
             </motion.p>
 
             <motion.p {...fadeUp(0.23)} className="text-slate-400 leading-relaxed">
@@ -79,9 +76,7 @@ export default function About() {
 
             {/* Timeline */}
             <motion.div {...fadeUp(0.38)} className="mt-8">
-              <h3 className="font-mono text-xs text-slate-500 tracking-[0.2em] uppercase mb-6">
-                // journey
-              </h3>
+              <h3 className="text-sm text-slate-500 mb-6">Journey</h3>
               <div className="space-y-0">
                 {TIMELINE.map((item, i) => (
                   <div key={i} className="flex gap-4 group">
@@ -105,46 +100,33 @@ export default function About() {
             </motion.div>
           </div>
 
-          {/* ── Stats + Info card ──────────────────────── */}
-          <div className="lg:col-span-2 space-y-4">
+          {/* ── Stats + Info ───────────────────────────── */}
+          <div className="lg:col-span-2 space-y-10">
 
-            {/* Stat grid */}
-            <motion.div {...fadeUp(0.3)} className="grid grid-cols-2 gap-3">
+            {/* Stat row */}
+            <motion.div {...fadeUp(0.3)} className="grid grid-cols-2 border-t border-l border-white/[0.08]">
               {STATS.map((s) => (
                 <div
                   key={s.label}
-                  className="glass-card p-5 text-center hover:border-emerald-500/30 transition-colors duration-300 cursor-default"
+                  className="border-b border-r border-white/[0.08] p-5"
                 >
-                  <p className="text-2xl font-bold gradient-text mb-1">{s.value}</p>
-                  <p className="text-xs text-slate-500 font-mono">{s.label}</p>
+                  <p className="text-2xl font-bold text-white mb-1">{s.value}</p>
+                  <p className="text-xs text-slate-500">{s.label}</p>
                 </div>
               ))}
             </motion.div>
 
-            {/* Info card */}
-            <motion.div {...fadeUp(0.42)} className="glass-card p-6 space-y-3">
-              <h3 className="font-mono text-xs text-slate-500 tracking-[0.2em] uppercase pb-3 border-b border-white/[0.06]">
-                // quick info
-              </h3>
-              {INFO.map(({ label, value }) => (
-                <div key={label} className="flex justify-between items-start gap-3 text-sm">
-                  <span className="text-slate-600 shrink-0 font-mono text-xs">{label}</span>
-                  <span className="text-slate-300 text-right text-xs">{value}</span>
-                </div>
-              ))}
-            </motion.div>
-
-            {/* Callout */}
-            <motion.div
-              {...fadeUp(0.52)}
-              className="glass-card p-5 border-l-2 border-emerald-500/50"
-            >
-              <p className="text-sm text-slate-400 leading-relaxed">
-                <span className="text-emerald-400 font-semibold font-mono">$ whoami</span>
-                <br />
-                <span className="text-slate-500">→</span>{' '}
-                A developer who is equally comfortable in a kernel module and a Figma canvas.
-              </p>
+            {/* Info list */}
+            <motion.div {...fadeUp(0.42)}>
+              <h3 className="text-sm text-slate-500 mb-4">Quick info</h3>
+              <div className="border-t border-white/[0.08]">
+                {INFO.map(({ label, value }) => (
+                  <div key={label} className="flex justify-between items-start gap-3 text-sm py-3 border-b border-white/[0.08]">
+                    <span className="text-slate-500 shrink-0">{label}</span>
+                    <span className="text-slate-300 text-right">{value}</span>
+                  </div>
+                ))}
+              </div>
             </motion.div>
           </div>
         </div>
